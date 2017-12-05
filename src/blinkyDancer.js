@@ -19,21 +19,15 @@
 // };
 
 let BlinkyDancer = function(top, left, timeBetweenSteps) {
-  console.log('Enterting blinky dancer constructor');
-  // this.oldStep = this.step;
-  // console.log(this.constructor);
   this.oldStep = Dancer.prototype.step;
-  console.log(Dancer.prototype.step);
   Dancer.apply(this, arguments);
-  // console.log(this)
-  // console.log('oldstep', this.oldStep);
 };
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 BlinkyDancer.prototype.step = function(timeBetweenSteps) {
-  console.log('Entering new Step')
-  // console.log(this);
   this.oldStep(timeBetweenSteps);
   this.$node.toggle();
 };
+
+window.BlinkyDancer = BlinkyDancer;
