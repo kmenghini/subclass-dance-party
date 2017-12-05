@@ -27,7 +27,7 @@ Dancer.prototype.getRandomHead = function() {
   this.head = this.heads[rand];
 };
 
-Dancer.prototype.lineup = function(top){
+Dancer.prototype.lineup = function(top) {
   var styleSettings = {
     top: top,
     left: '100px',

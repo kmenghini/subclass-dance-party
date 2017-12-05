@@ -13,7 +13,7 @@ MovementDancer.prototype.move = function(time) {
     'top': y,
     'left': x
   };
-  this.$node.animate(styleSettings, time, "linear", this.move.bind(this, time));
+  this.$node.animate(styleSettings, time, 'linear', this.move.bind(this, time));
 };
 
 window.MovementDancer = MovementDancer;
