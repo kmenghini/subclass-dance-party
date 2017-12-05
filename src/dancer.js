@@ -62,14 +62,10 @@ Dancer.prototype.getRandomHead = function() {
   this.head = this.heads[rand];
 };
 
-Dancer.prototype.lineup = function(){
-  var screenX = $(window).width;
-  var screenY = $(window).height;
-  var numOfDancers = window.dancers.length;
+Dancer.prototype.lineup = function(top){
   var styleSettings = {
-    top: '100px',
+    top: top,
     left: '100px',
-    'animation-duration': '4s'
   };
-  this.$node.css(styleSettings);
+  this.$node.animate(styleSettings);
 };

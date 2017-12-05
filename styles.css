@@ -18,6 +18,11 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+
+.lineupButton{
+  padding:5px 12px;
+  float:right;
+}
 .topbar{
   height:32px;
   background-color: #555;
