@@ -8,7 +8,7 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 BlinkyDancer.prototype.step = function(timeBetweenSteps) {
   this.oldStep(timeBetweenSteps);
-  this.$node.toggle();
+  this.$node.toggleClass('hide');
 };
 
 window.BlinkyDancer = BlinkyDancer;

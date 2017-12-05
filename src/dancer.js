@@ -1,15 +1,17 @@
 let Dancer = function (top, left, timeBetweenSteps) {
   this.heads = ['partyparrot.gif', 'lemon.png', 'cucco.gif', 'angrybird.gif'];
   this.$node = $('<span class="dancer"><img class="dancerhead"></span>');
+  this.stepHandler;
   this.getRandomHead();
   this.step(timeBetweenSteps);
   this.setPosition(top, left);
+  console.log(window.dancers.length);
 };
 
 Dancer.prototype.step = function(timeBetweenSteps) {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-  setTimeout(this.step.bind(this, timeBetweenSteps), timeBetweenSteps);
+  this.stepHandler = setTimeout(this.step.bind(this, timeBetweenSteps), timeBetweenSteps);
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -42,34 +44,29 @@ Dancer.prototype.lineup = function(top) {
   this.$node.animate(styleSettings);
 };
 
-Dancer.prototype.dance = function(top, left) {
+Dancer.prototype.dance = function(top, left, index) {
   var styleSettings = {
     top: top,
     left: left
   };
   this.$node.animate(styleSettings);
-  this.orbit();
+  this.orbit(index);
 
 }
 
-Dancer.prototype.orbit = function() {
-  var orbitCSS = {
-    '@-webkit-keyframes myOrbit': {
-        'from': { '-webkit-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
-        'to':   { '-webkit-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
-    },
-    '@-moz-keyframes myOrbit' {
-        'from': { '-moz-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
-        'to':   { '-moz-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
-    },
-    '@-o-keyframes myOrbit': {
-        'from': { '-o-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
-        'to':   { '-o-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
-    },
-    '@keyframes myOrbit': {
-        'from': { 'transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
-        'to':   { 'transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
-    }
+Dancer.prototype.orbit = function(index) {
+  if (index % 2 === 0) {
+    this.$node.addClass('revOrbit');
   }
-  this.$node.css(orbitCSS);
+  else {
+    this.$node.addClass('orbit');
+  }
+}
+
+Dancer.prototype.stopAnimation = function() {
+  this.$node.stop();
+  $('.hide').removeClass('hide');
+  clearTimeout(this.stepHandler);
+  this.$node.removeClass('orbit');
+  this.$node.removeClass('revOrbit');
 }

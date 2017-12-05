@@ -35,7 +35,7 @@ $(document).ready(function() {
     var numOfDancers = window.dancers.length;
     var spaceBetweenDancers = screenY / numOfDancers;
     window.dancers.forEach(function(dancer, index) {
-      dancer.$node.stop();
+      dancer.stopAnimation();
       dancer.lineup(spaceBetweenDancers * index);
     });
   });
@@ -54,9 +54,8 @@ $(document).ready(function() {
     indices.push([$(window).width() / 2, $(window).height() / 2]);
     window.dancers.forEach(function(dancer, index) {
       console.log(vertSpacing, horizSpacing)
-      dancer.$node.stop();
-
-      dancer.dance((vertSpacing * indices[index][0]) + vertSpacing / 2, (horizSpacing * indices[index][1]) + horizSpacing / 2 );
+      dancer.stopAnimation();
+      dancer.dance((vertSpacing * indices[index][0]) + vertSpacing / 2, (horizSpacing * indices[index][1]) + horizSpacing / 2 , index);
 
     })
   });

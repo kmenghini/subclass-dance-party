@@ -19,6 +19,10 @@ body, a:link, a:visited, a:active{
   float:right;
 }
 
+.hide {
+  display: none;
+}
+
 .lineupButton, .danceButton{
   padding:5px 12px;
   float:right;
@@ -39,4 +43,65 @@ body, a:link, a:visited, a:active{
 img {
   height: 50px;
   width: 50px;
+}
+
+.dancer:hover {
+  transition: all 200ms ease-in;
+  transform: scale(3) rotate(0.5turn);
+}
+
+.orbit {
+  -webkit-animation: myOrbit 4s linear infinite; /* Chrome, Safari 5 */
+         -moz-animation: myOrbit 4s linear infinite; /* Firefox 5-15 */
+           -o-animation: myOrbit 4s linear infinite; /* Opera 12+ */
+              animation: myOrbit 4s linear infinite; /* Chrome, Firefox 16+,
+                                                        IE 10+, Safari 5 */
+}
+
+.revOrbit {
+  -webkit-animation: reverseOrbit 4s linear infinite; /* Chrome, Safari 5 */
+         -moz-animation: reverseOrbit 4s linear infinite; /* Firefox 5-15 */
+           -o-animation: reverseOrbit 4s linear infinite; /* Opera 12+ */
+              animation: reverseOrbit 4s linear infinite; /* Chrome, Firefox 16+,
+                                                        IE 10+, Safari 5 */
+}
+
+@-webkit-keyframes myOrbit {
+    from { -webkit-transform: rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@-moz-keyframes myOrbit {
+    from { -moz-transform: rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { -moz-transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@-o-keyframes myOrbit {
+    from { -o-transform: rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { -o-transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+@-webkit-keyframes reverseOrbit {
+    from { -webkit-transform: rotate(0deg) translateX(-50px) rotate(0deg); }
+    to   { -webkit-transform: rotate(-360deg) translateX(-50px) rotate(360deg); }
+}
+
+@-moz-keyframes reverseOrbit {
+    from { -moz-transform: rotate(0deg) translateX(-50px) rotate(0deg); }
+    to   { -moz-transform: rotate(-360deg) translateX(-50px) rotate(360deg); }
+}
+
+@-o-keyframes reverseOrbit {
+    from { -o-transform: rotate(0deg) translateX(-50px) rotate(0deg); }
+    to   { -o-transform: rotate(-360deg) translateX(-50px) rotate(360deg); }
+}
+
+@keyframes reverseOrbit {
+    from { transform: rotate(0deg) translateX(-50px) rotate(0deg); }
+    to   { transform: rotate(-360deg) translateX(-50px) rotate(360deg); }
 }
