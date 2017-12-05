@@ -1,15 +1,13 @@
 describe('blinkyDancer', function() {
-
   var blinkyDancer, clock;
-  var timeBetweenSteps = 2000;
-  // var timeBetweenSteps = 100;
+  var timeBetweenSteps = 100;
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = new makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
-  xit('should have a jQuery $node object', function() {
+  it('should have a jQuery $node object', function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
