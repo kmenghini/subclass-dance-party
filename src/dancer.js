@@ -5,7 +5,6 @@ let Dancer = function (top, left, timeBetweenSteps) {
   this.getRandomHead();
   this.step(timeBetweenSteps);
   this.setPosition(top, left);
-  console.log(window.dancers.length);
 };
 
 Dancer.prototype.step = function(timeBetweenSteps) {

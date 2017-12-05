@@ -13,7 +13,13 @@ MovementDancer.prototype.move = function(time) {
     'top': y,
     'left': x
   };
+  console.log('here')
   this.$node.animate(styleSettings, time, 'linear', this.move.bind(this, time));
+};
+
+MovementDancer.prototype.step = function() {
+  //override default stepping behavior of Dancer
+  return;
 };
 
 window.MovementDancer = MovementDancer;
