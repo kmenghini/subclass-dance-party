@@ -39,7 +39,27 @@ $(document).ready(function() {
       dancer.lineup(spaceBetweenDancers * index);
     });
   });
+  $('.danceButton').on('click', function(event) {
+    var vertDancers = Math.floor(Math.sqrt(window.dancers.length / 2) + 1)
+    var horizDancers = window.dancers.length / (2 * vertDancers);
+    var vertSpacing= $(window).height() / vertDancers;
+    var horizSpacing = $(window).width() / horizDancers;
+    var indices = [];
+    for (var i = 0; i < vertDancers; i++) {
+      for (var j = 0; j < horizDancers; j++) {
+        indices.push([i, j]);
+        indices.push([i, j]);
+      }
+    }
+    indices.push([$(window).width() / 2, $(window).height() / 2]);
+    window.dancers.forEach(function(dancer, index) {
+      console.log(vertSpacing, horizSpacing)
+      dancer.$node.stop();
 
+      dancer.dance((vertSpacing * indices[index][0]) + vertSpacing / 2, (horizSpacing * indices[index][1]) + horizSpacing / 2 );
+
+    })
+  });
   // $('.dancerhead').on('click', function(event) {
   //   console.log('here')
   //   this.nextHead();

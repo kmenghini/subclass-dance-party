@@ -31,7 +31,7 @@ Dancer.prototype.getRandomHead = function() {
 Dancer.prototype.nextHead = function() {
   var index = (this.heads.indexOf(this.head) + 1) % this.heads.length;
   this.head = './heads/' + this.heads[index];
-  this.$node.find('img').attr('src', this.head);  
+  this.$node.find('img').attr('src', this.head);
 };
 
 Dancer.prototype.lineup = function(top) {
@@ -41,3 +41,35 @@ Dancer.prototype.lineup = function(top) {
   };
   this.$node.animate(styleSettings);
 };
+
+Dancer.prototype.dance = function(top, left) {
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.animate(styleSettings);
+  this.orbit();
+
+}
+
+Dancer.prototype.orbit = function() {
+  var orbitCSS = {
+    '@-webkit-keyframes myOrbit': {
+        'from': { '-webkit-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
+        'to':   { '-webkit-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
+    },
+    '@-moz-keyframes myOrbit' {
+        'from': { '-moz-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
+        'to':   { '-moz-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
+    },
+    '@-o-keyframes myOrbit': {
+        'from': { '-o-transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
+        'to':   { '-o-transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
+    },
+    '@keyframes myOrbit': {
+        'from': { 'transform': 'rotate(0deg) translateX(150px) rotate(0deg)' },
+        'to':   { 'transform': 'rotate(360deg) translateX(150px) rotate(-360deg)' }
+    }
+  }
+  this.$node.css(orbitCSS);
+}

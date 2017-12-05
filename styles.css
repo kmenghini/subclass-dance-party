@@ -19,7 +19,7 @@ body, a:link, a:visited, a:active{
   float:right;
 }
 
-.lineupButton{
+.lineupButton, .danceButton{
   padding:5px 12px;
   float:right;
 }
