@@ -1,15 +1,19 @@
-
 let MovementDancer = function(top, left, timeBetweenSteps) {
-  //this.oldStep = Dancer.prototype.step;
   Dancer.apply(this, arguments);
-  // this.$node = $('<span class="dancer"><img src="lemon.png"></span>');
+  this.move(timeBetweenSteps * 10);
 };
+
 MovementDancer.prototype = Object.create(Dancer.prototype);
 MovementDancer.prototype.constructor = MovementDancer;
 
-// BlinkyDancer.prototype.step = function(timeBetweenSteps) {
-//   this.oldStep(timeBetweenSteps);
-//   this.$node.toggle();
-// };
+MovementDancer.prototype.move = function(time) {
+  var x = Math.floor(Math.random() * $(window).width());
+  var y = Math.floor(Math.random() * $(window).height());
+  var styleSettings = {
+    'top': y,
+    'left': x
+  };
+  this.$node.animate(styleSettings, time, "linear", this.move.bind(this, time));
+};
 
-window.BlinkyDancer = BlinkyDancer;
+window.MovementDancer = MovementDancer;
