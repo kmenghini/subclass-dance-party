@@ -39,4 +39,10 @@ $(document).ready(function() {
       dancer.lineup(spaceBetweenDancers * index);
     });
   });
+
+  // $('.dancerhead').on('click', function(event) {
+  //   console.log('here')
+  //   this.nextHead();
+  // });
+
 });
