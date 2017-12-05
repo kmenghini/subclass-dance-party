@@ -21,6 +21,7 @@
 let BlinkyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step;
   Dancer.apply(this, arguments);
+  // this.$node = $('<span class="dancer"><img src="lemon.png"></span>');
 };
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;

@@ -32,7 +32,10 @@
 // };
 
 let Dancer = function (top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.heads = ['partyparrot.gif', 'lemon.png'];
+  this.getRandomHead();
+  this.$node = $('<span class="dancer"><img src="./heads/' + this.head + '"></span>');
+  console.log('<span class="dancer"><img src="' + this.head + '"></span>');
   this.step(timeBetweenSteps);
   this.setPosition(top, left);
 };
@@ -49,6 +52,24 @@ Dancer.prototype.setPosition = function(top, left) {
   var styleSettings = {
     top: top,
     left: left
+  };
+  this.$node.css(styleSettings);
+};
+
+Dancer.prototype.getRandomHead = function() {
+  let rand = Math.floor(Math.random() * (this.heads.length));
+  console.log(rand);
+  this.head = this.heads[rand];
+};
+
+Dancer.prototype.lineup = function(){
+  var screenX = $(window).width;
+  var screenY = $(window).height;
+  var numOfDancers = window.dancers.length;
+  var styleSettings = {
+    top: '100px',
+    left: '100px',
+    'animation-duration': '4s'
   };
   this.$node.css(styleSettings);
 };
