@@ -1,4 +1,4 @@
-let AngryDancer = function(top, left, timeBetweenSteps) {
+let AngryDancer = function(top, left) {
   Dancer.apply(this, arguments);
   this.launchIn();
   // this.hopAround();
@@ -24,7 +24,7 @@ AngryDancer.prototype.launchIn = function() {
   // var staryY = Math.floor(Math.random() * (yMax))
   var startY = yMax - Math.floor(Math.random() * 300);
   var ang = Math.floor(Math.random() * 35) + 35;
-  var endY = yMax -200 - Math.floor(Math.random() * 100); 
+  var endY = yMax -200 - Math.floor(Math.random() * 100);
   var endX = Math.floor(Math.random() * xMax);
   this.bezier(startX, startY, endX, endY, ang);
 };
@@ -65,6 +65,5 @@ AngryDancer.prototype.bezier = function (startX, startY, endX, endY, ang, len) {
   }
   this.$node.animate({ path: new $.path.bezier(bezier_params) });
 };
-
 
 window.AngryDancer = AngryDancer;
